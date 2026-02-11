@@ -8,15 +8,6 @@ files.
 
 [![Deno Test](https://github.com/simonneutert/deno-quickblog/actions/workflows/deno.yaml/badge.svg)](https://github.com/simonneutert/deno-quickblog/actions/workflows/deno.yaml)
 
-> [!CAUTION]
-> This project is in a public alpha stage. The engine will be pulled out into a
-> separate package in the future, and this repository will serve as a
-> demo/showcase/template for how to use it.\
-> So expect breaking changes and a lot of updates in the near future. **Most
-> likely I will drop and re-create the GitHub repository itself.**\
-> But if you want to try it out and give feedback, please do! Just make sure to
-> back up your content before pulling the latest changes.
-
 ## Template
 
 See
@@ -177,16 +168,45 @@ title = "About"
 Information about me!
 ```
 
-**JSX Page** (`pages/artists.jsx`):
+**JSX Page** (`pages/Movies.jsx`):
 
 ```jsx
-export default function Artists({ posts }) {
+/*
+  You will need these import statements 👇️
+*/
+
+// deno-lint-ignore-file verbatim-module-syntax no-import-prefix no-unversioned-import
+import React from "npm:@preact/compat";
+import { render } from "jsr:@deno/gfm";
+import { parse } from "jsr:@std/yaml";
+
+import data from "./movies.json" with { type: "json" };
+/*
+movies.json is something like:
+
+  {
+    "books": [
+      {
+        "id": 12345,
+        "title": "Die Hard",
+        "url": "https://en.wikipedia.org/wiki/Die_Hard"
+      }
+    ]
+  }
+*/
+
+// set a title in the rendered HTML
+export const config = {
+  title: "Movies from JSON as JSX",
+};
+
+export default function Movies() {
   return (
     <div>
-      <h1>Artists</h1>
+      <h1>Movies</h1>
       <ul>
-        {posts.map(([key, date, title, url]) => (
-          <li key={key}>
+        {data.movies.map(({ id, title, url }) => (
+          <li key={id}>
             <a href={url}>{title}</a>
           </li>
         ))}
@@ -337,6 +357,34 @@ deno task new         # Create a new post
 deno task dev-watch   # Build with watch mode
 deno task serve       # Serve the dist/ folder locally
 ```
+
+## (Maybe) Planned Features
+
+Create a GitHub issue if you'd like to see any of these features implemented!\
+Discussing them first is recommended.
+
+In this order of priority (most likely):
+
+- [x] Support pages other than index (e.g., about.md).
+- [x] Toggleable dark mode.
+- [x] Render posts list with optional limit.
+- [x] Multi-language support.
+- [x] Data-Driven Pages (JSX-Template-Support).
+- [x] Split the code base
+  - [x] Pull the logic out in an engine.
+  - [x] Put up a repo with the templates.
+- [ ] unbake the html layout, let users use bring their own
+- [ ] RSS feed generation.
+- [ ] Generate `og:` meta tags for social media sharing.
+- [ ] Clear upgrading path to future versions.
+- [ ] Support for tags and categories.
+- [ ] More programming language support for code snippets.
+
+### More syntax highlighting languages needed?
+
+https://github.com/PrismJS/prism/tree/master/components
+
+Just let me know which ones you'd like to see added!
 
 ## Publishing to JSR
 
