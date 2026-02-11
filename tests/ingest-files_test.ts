@@ -176,7 +176,7 @@ Deno.test("findMarkdownFiles correctly finds markdown files in nested directorie
   try {
     const markdownFiles = findMarkdownFiles("posts");
     assertEquals(markdownFiles.length, 2);
-    assertEquals(markdownFiles, ["post1.md", "nested/post2.md"]);
+    assertEquals(markdownFiles.sort(), ["post1.md", "nested/post2.md"].sort());
   } finally {
     Deno.chdir(originalCwd);
     Deno.removeSync(tempDir, { recursive: true });

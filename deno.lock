@@ -1,6 +1,7 @@
 {
   "version": "5",
   "specifiers": {
+    "jsr:@deno/gfm@*": "0.12.0",
     "jsr:@deno/gfm@0.12": "0.12.0",
     "jsr:@denosaurs/emoji@~0.3.1": "0.3.1",
     "jsr:@std/assert@^1.0.18": "1.0.18",
@@ -11,6 +12,7 @@
     "jsr:@std/toml@^1.0.3": "1.0.11",
     "jsr:@std/yaml@^1.0.11": "1.0.11",
     "jsr:@std/yaml@^1.0.5": "1.0.11",
+    "npm:@preact/compat@^18.3.1": "18.3.1_preact@10.28.3",
     "npm:github-slugger@2": "2.0.0",
     "npm:he@^1.2.0": "1.2.0",
     "npm:katex@0.16": "0.16.28",
@@ -22,6 +24,7 @@
     "npm:preact@10.28.3": "10.28.3",
     "npm:prismjs@1.30.0": "1.30.0",
     "npm:prismjs@^1.30.0": "1.30.0",
+    "npm:react@19": "19.2.4",
     "npm:sanitize-html@^2.17.0": "2.17.0"
   },
   "jsr": {
@@ -73,6 +76,12 @@
     }
   },
   "npm": {
+    "@preact/compat@18.3.1_preact@10.28.3": {
+      "integrity": "sha512-Kog4PSRxtT4COtOXjsuQPV1vMXpUzREQfv+6Dmcy9/rMk0HOPK0HTE9fspFjAmY8R80T/T8gtgmZ68u5bOSngw==",
+      "dependencies": [
+        "preact"
+      ]
+    },
     "commander@8.3.0": {
       "integrity": "sha512-OkTL9umf+He2DZkUq8f8J9of7yL6RJKI24dVITBmNfZBmri9zYZQrKkuXiKhyfPSu8tUhnVBB1iKXevvnlR4Ww=="
     },
@@ -189,6 +198,9 @@
     "prismjs@1.30.0": {
       "integrity": "sha512-DEvV2ZF2r2/63V+tK8hQvrR2ZGn10srHbXviTlcv7Kpzw8jWiNTqbVgjO3IY8RxrrOUF8VPMQQFysYYYv0YZxw=="
     },
+    "react@19.2.4": {
+      "integrity": "sha512-9nfp2hYpCwOjAN+8TZFGhtWEwgvWHXqESH8qT89AT/lWklpLON22Lc8pEtnpsZz7VmawabSU0gCjnj8aC0euHQ=="
+    },
     "sanitize-html@2.17.0": {
       "integrity": "sha512-dLAADUSS8rBwhaevT12yCezvioCA+bmUTPH/u57xKPT8d++voeYE6HeluA/bPbQ15TwDBG2ii+QZIEmYx8VdxA==",
       "dependencies": [
@@ -211,6 +223,7 @@
       "jsr:@std/front-matter@^1.0.9",
       "jsr:@std/toml@^1.0.11",
       "jsr:@std/yaml@^1.0.11",
+      "npm:@preact/compat@^18.3.1",
       "npm:preact-render-to-string@6.6.5",
       "npm:preact@10.28.3",
       "npm:prismjs@1.30.0"

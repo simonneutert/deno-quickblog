@@ -100,6 +100,7 @@ export async function writePageFromJSX(
   const absolutePath = new URL(sourcePath, `file://${Deno.cwd()}/`).href;
   const module = await import(absolutePath);
   const PageComponent = module.default;
+  const title = module.config?.title || pageName;
   const pageJsx = PageComponent({ posts });
   const pageHtml = renderToString(pageJsx);
 
@@ -109,7 +110,7 @@ export async function writePageFromJSX(
   Deno.writeTextFileSync(
     `${outputDir}/${pageName}.html`,
     htmlTemplate({
-      title: pageName,
+      title: title,
       content: pageHtml,
       nav: nav,
       footer: renderFooter(),
