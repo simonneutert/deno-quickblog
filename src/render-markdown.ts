@@ -28,15 +28,15 @@ ${body}`;
   return htmlTemplate({ title, content, nav, footer: renderFooter() });
 }
 
-export function renderNav(): string {
-  return renderMarkdownFileToHtml("nav.md");
+export function renderNav(filePath = "nav.md"): string {
+  return renderMarkdownFileToHtml(filePath);
 }
 
-export function renderFooter(): string {
-  const markdown = renderMarkdownFileToHtml("footer.md");
+export function renderFooter(filePath = "footer.md"): string {
   if (Deno.env.get("DENO_QUICKBLOG_HIDE_FOOTER") === "true") {
     return "";
   }
+  const markdown = renderMarkdownFileToHtml(filePath);
   return `<footer>
   ${markdown}
 </footer>
@@ -82,9 +82,8 @@ export function createHtmlPostFromMarkdownToHTML(
 ): string {
   let content = createHtmlPostFromMarkdown(title, markdown, year, month, day);
   content += `<hr>
-    ${prevUrl ? `<a href="${prevUrl}">&#8592; ${i18n().previous}</a>` : ""}${
-    prevUrl && nextUrl ? " | " : ""
-  }${nextUrl ? `<a href="${nextUrl}">${i18n().next} &#8594;</a>` : ""}`;
+    ${prevUrl ? `<a href="${prevUrl}">&#8592; ${i18n().previous}</a>` : ""}${prevUrl && nextUrl ? " | " : ""
+    }${nextUrl ? `<a href="${nextUrl}">${i18n().next} &#8594;</a>` : ""}`;
   const nav = renderNav();
   return htmlTemplate({ title, content, nav, footer: renderFooter() });
 }

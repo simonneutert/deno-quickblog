@@ -209,19 +209,19 @@ Deno.test("createPostListMarkdown creates correct markdown list", () => {
   assertEquals(
     result,
     `- <small>2024-06-28</small> [Post 2](/posts/2024-06-28-post2)\n` +
-      `- <small>2024-05-28</small> [Post 1](/posts/2024-05-28-post1)\n`,
+    `- <small>2024-05-28</small> [Post 1](/posts/2024-05-28-post1)\n`,
   );
 });
 
 Deno.test("renderFooter returns empty string when DENO_QUICKBLOG_HIDE_FOOTER is true", () => {
   Deno.env.set("DENO_QUICKBLOG_HIDE_FOOTER", "true");
-  const footer = renderFooter();
+  const footer = renderFooter("demo/footer.md");
   assertEquals(footer, ""); // Should return empty string when the environment variable is set to true
   Deno.env.delete("DENO_QUICKBLOG_HIDE_FOOTER"); // Clean up environment variable after test
 });
 
 Deno.test("renderFooter returns footer content when DENO_QUICKBLOG_HIDE_FOOTER is not set", () => {
   Deno.env.delete("DENO_QUICKBLOG_HIDE_FOOTER"); // Ensure the environment variable is not set
-  const footer = renderFooter();
+  const footer = renderFooter("demo/footer.md");
   assert(footer.includes("<footer>")); // Should include footer content when the environment variable is not set
 });
