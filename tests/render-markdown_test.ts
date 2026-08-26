@@ -209,7 +209,7 @@ Deno.test("createPostListMarkdown creates correct markdown list", () => {
   assertEquals(
     result,
     `- <small>2024-06-28</small> [Post 2](/posts/2024-06-28-post2)\n` +
-    `- <small>2024-05-28</small> [Post 1](/posts/2024-05-28-post1)\n`,
+      `- <small>2024-05-28</small> [Post 1](/posts/2024-05-28-post1)\n`,
   );
 });
 

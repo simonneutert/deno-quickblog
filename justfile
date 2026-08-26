@@ -14,4 +14,4 @@ serve-coverage:
   deno run --allow-net --allow-read jsr:@std/http/file-server --port 8001 coverage/html/
 
 lint:
-  deno lint && deno check && deno fmt
+  deno lint --fix && deno check && deno fmt

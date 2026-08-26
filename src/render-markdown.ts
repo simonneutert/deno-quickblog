@@ -82,8 +82,9 @@ export function createHtmlPostFromMarkdownToHTML(
 ): string {
   let content = createHtmlPostFromMarkdown(title, markdown, year, month, day);
   content += `<hr>
-    ${prevUrl ? `<a href="${prevUrl}">&#8592; ${i18n().previous}</a>` : ""}${prevUrl && nextUrl ? " | " : ""
-    }${nextUrl ? `<a href="${nextUrl}">${i18n().next} &#8594;</a>` : ""}`;
+    ${prevUrl ? `<a href="${prevUrl}">&#8592; ${i18n().previous}</a>` : ""}${
+    prevUrl && nextUrl ? " | " : ""
+  }${nextUrl ? `<a href="${nextUrl}">${i18n().next} &#8594;</a>` : ""}`;
   const nav = renderNav();
   return htmlTemplate({ title, content, nav, footer: renderFooter() });
 }
