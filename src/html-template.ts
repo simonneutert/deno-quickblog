@@ -1,5 +1,5 @@
 // CSS first, then PrismJS languages for syntax highlighting
-import { CSS } from "@deno/gfm";
+import { CSS } from "@simonneutert/gfm";
 import "prismjs/components/prism-clojure.js";
 import "prismjs/components/prism-python.js";
 import "prismjs/components/prism-javascript.js";

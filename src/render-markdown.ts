@@ -1,4 +1,4 @@
-import { render } from "@deno/gfm";
+import { render } from "@simonneutert/gfm";
 import { formatDateString } from "./helpers.ts";
 import { i18n } from "./i18n/i18n.ts";
 import { htmlTemplate } from "./html-template.ts";
