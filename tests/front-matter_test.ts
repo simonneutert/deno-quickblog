@@ -20,21 +20,21 @@ Deno.test("fallbackTitleNoFrontMatter when content has a h1 heading", () => {
   const content = `# My Blog Post\nThis is the content of the post.`;
   const result = fallbackTitleNoFrontMatter(content);
   assertEquals(result.frontMatter.title, "My Blog Post");
-  assertEquals(result.content, content);
+  assertEquals(result.content, "This is the content of the post.");
 });
 
 Deno.test("fallbackTitleNoFrontMatter when content has a h2 heading", () => {
   const content = `## My Blog Post\nThis is the content of the post.`;
   const result = fallbackTitleNoFrontMatter(content);
   assertEquals(result.frontMatter.title, "My Blog Post");
-  assertEquals(result.content, content);
+  assertEquals(result.content, "This is the content of the post.");
 });
 
 Deno.test("fallbackTitleNoFrontMatter when content has a h3 heading", () => {
   const content = `### My Blog Post\nThis is the content of the post.`;
   const result = fallbackTitleNoFrontMatter(content);
   assertEquals(result.frontMatter.title, "My Blog Post");
-  assertEquals(result.content, content);
+  assertEquals(result.content, "This is the content of the post.");
 });
 
 Deno.test("fallbackTitleNoFrontMatter when content has no headings", () => {
@@ -72,14 +72,14 @@ Deno.test("fallbackTitleNoFrontMatter when content has a heading with leading wh
   const content = `   # My Blog Post\nThis is the content of the post.`;
   const result = fallbackTitleNoFrontMatter(content);
   assertEquals(result.frontMatter.title, "My Blog Post");
-  assertEquals(result.content, content);
+  assertEquals(result.content, "This is the content of the post.");
 });
 
 Deno.test("fallbackTitleNoFrontMatter when content has a heading with trailing whitespace", () => {
   const content = `# My Blog Post   \nThis is the content of the post.`;
   const result = fallbackTitleNoFrontMatter(content);
   assertEquals(result.frontMatter.title, "My Blog Post");
-  assertEquals(result.content, content);
+  assertEquals(result.content, "This is the content of the post.");
 });
 
 Deno.test("fallbackTitleNoFrontMatter when content has multiple headings", () => {
@@ -87,12 +87,31 @@ Deno.test("fallbackTitleNoFrontMatter when content has multiple headings", () =>
     `# My Blog Post\n## Subheading\n### Sub-subheading\nThis is the content of the post.`;
   const result = fallbackTitleNoFrontMatter(content);
   assertEquals(result.frontMatter.title, "My Blog Post");
-  assertEquals(result.content, content);
+  assertEquals(
+    result.content,
+    "## Subheading\n### Sub-subheading\nThis is the content of the post.",
+  );
 });
 
 Deno.test("fallbackTitleNoFrontMatter when content has a heading with special characters", () => {
   const content = `# My Blog Post! @#$%^&*()\nThis is the content of the post.`;
   const result = fallbackTitleNoFrontMatter(content);
   assertEquals(result.frontMatter.title, "My Blog Post! @#$%^&*()");
+  assertEquals(result.content, "This is the content of the post.");
+});
+
+Deno.test("fallbackTitleNoFrontMatter keeps a heading that is not on the first line", () => {
+  const content = `Some intro.\n\n### You don't even need front matter!\nText.`;
+  const result = fallbackTitleNoFrontMatter(content);
+  assertEquals(result.frontMatter, {
+    title: "You don't even need front matter!",
+    noFrontMatter: true,
+  });
   assertEquals(result.content, content);
+});
+
+Deno.test("fallbackTitleNoFrontMatter strips a first-line heading after blank lines", () => {
+  const result = fallbackTitleNoFrontMatter(`\n  \n# Title\nText.`);
+  assertEquals(result.frontMatter, { title: "Title", noFrontMatter: false });
+  assertEquals(result.content, "Text.");
 });

@@ -1,15 +1,24 @@
 export function fallbackTitleNoFrontMatter(fileContent: string) {
   // grab either first "# string ..." or first "## string ..." or first "### string ..." as title
   // if front matter is not provided or as a fallback first line trimmed to 80 characters, and
-  // return content as is
+  // return content as is, unless the title heading is its first line
   const lines = fileContent.split("\n");
   let title = "Untitled Post";
 
-  for (const line of lines) {
+  for (const [i, line] of lines.entries()) {
     const trimmed = line.trim();
     if (trimmed.match(/^#{1,3}\s+(.+)$/)) {
       // Extract text after # (1-3 hashes)
       title = trimmed.replace(/^#{1,3}\s+/, "");
+      // A heading on the first line is only the title, as front matter's would
+      // be: strip it, so it isn't rendered twice (like Jekyll's strip_title),
+      // and render the title like front matter's (`noFrontMatter: false`).
+      if (lines.slice(0, i).every((l) => !l.trim())) {
+        return {
+          content: lines.slice(i + 1).join("\n"),
+          frontMatter: { title, noFrontMatter: false },
+        };
+      }
       break;
     }
   }
