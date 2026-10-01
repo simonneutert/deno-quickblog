@@ -278,7 +278,7 @@ my-blog/
 Edit `nav.md` to customize your navigation menu:
 
 ```markdown
-[Home](/) | [About](/pages/about.html) | [Posts](/pages/posts.html)
+[Home](/) | [About](/about.html) | [Posts](/posts.html)
 ```
 
 ### Footer
