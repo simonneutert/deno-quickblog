@@ -17,7 +17,9 @@ function showHelp() {
   console.log("  init        Initialize a new blog directory");
   console.log("  help        Show this help message\n");
   console.log("Options for 'new' command:");
-  console.log("  --yaml, -y  Use YAML frontmatter instead of TOML (default is TOML)\n");
+  console.log(
+    "  --yaml, -y  Use YAML frontmatter instead of TOML (default is TOML)\n",
+  );
   console.log("Examples:");
   console.log(
     '  deno run -A jsr:@simonneutert/quickblog new "My Post Title"',
