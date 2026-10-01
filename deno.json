@@ -1,6 +1,6 @@
 {
   "name": "@simonneutert/quickblog",
-  "version": "0.0.4",
+  "version": "0.0.5",
   "exports": "./mod.ts",
   "description": "A simple static-site-generator (blog) built with Deno (and a little Preact).",
   "license": "MIT",
