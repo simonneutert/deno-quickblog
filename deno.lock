@@ -11,7 +11,7 @@
     "jsr:@std/toml@^1.0.3": "1.0.11",
     "jsr:@std/yaml@^1.0.5": "1.3.0",
     "jsr:@std/yaml@^1.3.0": "1.3.0",
-    "npm:@preact/compat@^18.3.2": "18.3.2_preact@10.29.8__preact-render-to-string@6.8.0_preact-render-to-string@6.8.0__preact@10.29.8",
+    "npm:@preact/compat@^18.3.2": "18.3.2_preact@11.0.1__preact-render-to-string@6.8.0_preact-render-to-string@6.8.0__preact@11.0.1",
     "npm:github-slugger@2": "2.0.0",
     "npm:he@^1.2.0": "1.2.0",
     "npm:katex@0.16.28": "0.16.28",
@@ -19,8 +19,8 @@
     "npm:marked-footnote@^1.4.0": "1.4.0_marked@17.0.1",
     "npm:marked-gfm-heading-id@^4.1.3": "4.1.3_marked@17.0.1",
     "npm:marked@^17.0.1": "17.0.1",
-    "npm:preact-render-to-string@6.8.0": "6.8.0_preact@10.29.8",
-    "npm:preact@10.29.8": "10.29.8_preact-render-to-string@6.8.0",
+    "npm:preact-render-to-string@6.8.0": "6.8.0_preact@11.0.1",
+    "npm:preact@11.0.1": "11.0.1_preact-render-to-string@6.8.0",
     "npm:prismjs@1.30.0": "1.30.0",
     "npm:prismjs@^1.30.0": "1.30.0",
     "npm:sanitize-html@^2.17.0": "2.17.7"
@@ -74,7 +74,7 @@
     }
   },
   "npm": {
-    "@preact/compat@18.3.2_preact@10.29.8__preact-render-to-string@6.8.0_preact-render-to-string@6.8.0__preact@10.29.8": {
+    "@preact/compat@18.3.2_preact@11.0.1__preact-render-to-string@6.8.0_preact-render-to-string@6.8.0__preact@11.0.1": {
       "integrity": "sha512-5vSl55K5yLMvocT7PBKxDOHGgYPjMrKQqqr6roSNjIXcJOtSgDDMjpiCAF3s7klRdmGrN75b/Przmjw8gmlg/w==",
       "dependencies": [
         "preact"
@@ -193,14 +193,14 @@
         "source-map-js"
       ]
     },
-    "preact-render-to-string@6.8.0_preact@10.29.8": {
+    "preact-render-to-string@6.8.0_preact@11.0.1": {
       "integrity": "sha512-2qiMrReQz+MZ5+/bT27kbVnFE7QNCC2fku/Tnc2H5bFUS3I3ASbRy0q72XLZ+2p2KyDE5xMfvSEtkmVo6TRNyA==",
       "dependencies": [
         "preact"
       ]
     },
-    "preact@10.29.8_preact-render-to-string@6.8.0": {
-      "integrity": "sha512-ej2aVZ+vZ8WO7tvlQWRM9N63A0KzF9q4mWJfDUHgYaIofWY9hu74QdnQrjoPMmZi2/nZ5gN0bJCQF49xQqx09Q==",
+    "preact@11.0.1_preact-render-to-string@6.8.0": {
+      "integrity": "sha512-TNNwEq++jYNHy747LziCjPRVgEwnLSOIOAw/oYcjI3Tdnubx2EXtt76I0an8PATvUWtx/DX1kFIg1eFN+O/fkw==",
       "dependencies": [
         "preact-render-to-string"
       ],
@@ -236,7 +236,7 @@
       "jsr:@std/yaml@^1.3.0",
       "npm:@preact/compat@^18.3.2",
       "npm:preact-render-to-string@6.8.0",
-      "npm:preact@10.29.8",
+      "npm:preact@11.0.1",
       "npm:prismjs@1.30.0"
     ]
   }
