@@ -45,7 +45,7 @@
     "@preact/compat": "npm:@preact/compat@^18.3.2",
     "@std/toml": "jsr:@std/toml@^1.0.11",
     "@std/yaml": "jsr:@std/yaml@^1.3.0",
-    "preact": "npm:preact@10.29.8",
+    "preact": "npm:preact@11.0.2",
     "preact-render-to-string": "npm:preact-render-to-string@6.8.0",
     "prismjs": "npm:prismjs@1.30.0",
     "@simonneutert/gfm": "jsr:@simonneutert/gfm@^0.13.0",
