@@ -5,5 +5,15 @@ version: 2
 updates:
   - package-ecosystem: "deno" # See documentation for possible values
     directory: "/" # Location of package manifests
+    groups:
+      patch-and-minor-dependencies:
+        update-types: ["patch", "minor"]
+    schedule:
+      interval: "weekly"
+  - package-ecosystem: "github-actions"
+    directory: "/"
+    groups:
+      patch-and-minor-dependencies:
+        update-types: ["patch", "minor"]
     schedule:
       interval: "weekly"

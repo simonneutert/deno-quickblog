@@ -34,7 +34,7 @@ on GitHub.
 # `-A` allow all permissions
 # `-n quickblog` sets the command name to `quickblog`
 #
-# You can omit `-n quickblog` to use `deno run -A jsr:@simonneutert/quickblog` for commands instead.
+# You can omit `-n quickblog` to use `deno run --reload -A jsr:@simonneutert/quickblog` for commands instead.
 deno install -A -n quickblog jsr:@simonneutert/quickblog
 ```
 
@@ -42,7 +42,7 @@ deno install -A -n quickblog jsr:@simonneutert/quickblog
 
 ```bash
 # Initialize a new blog in the current directory
-deno run -A jsr:@simonneutert/quickblog init
+deno run --reload -A jsr:@simonneutert/quickblog init
 
 # Or when you installed globally
 quickblog init
@@ -64,10 +64,10 @@ my-blog/
 
 ```bash
 # Create a new post with a custom title (TOML frontmatter by default)
-deno run -A jsr:@simonneutert/quickblog new "My Post Title"
+deno run --reload -A jsr:@simonneutert/quickblog new "My Post Title"
 
 # Create a post with YAML frontmatter
-deno run -A jsr:@simonneutert/quickblog new "My Post" --yaml
+deno run --reload -A jsr:@simonneutert/quickblog new "My Post" --yaml
 
 # Or with global install
 quickblog new "My Post"
@@ -85,7 +85,7 @@ Posts are automatically named with the current date: `YYYY-MM-DD-slug.md`
 
 ```bash
 # Build the blog
-deno run -A jsr:@simonneutert/quickblog build
+deno run --reload -A jsr:@simonneutert/quickblog build
 
 # Or with global install
 quickblog build
@@ -107,13 +107,13 @@ You can run the CLI commands directly from JSR without installing:
 
 ```bash
 # Initialize a new blog
-deno run -A jsr:@simonneutert/quickblog init
+deno run --reload -A jsr:@simonneutert/quickblog init
 
 # Create a new post
-deno run -A jsr:@simonneutert/quickblog new "My Post Title"
+deno run --reload -A jsr:@simonneutert/quickblog new "My Post Title"
 
 # Build the blog
-deno run -A jsr:@simonneutert/quickblog build
+deno run --reload -A jsr:@simonneutert/quickblog build
 ```
 
 ## Writing Content
@@ -176,7 +176,7 @@ Information about me!
 */
 
 // deno-lint-ignore-file verbatim-module-syntax no-import-prefix no-unversioned-import
-import React from "npm:@preact/compat";
+import * as React from "jsr:@simonneutert/quickblog/compat";
 import { render } from "jsr:@deno/gfm";
 import { parse } from "jsr:@std/yaml";
 
