@@ -104,6 +104,11 @@ export async function writePageFromJSX(
   const pageJsx = PageComponent({ posts });
   const pageHtml = renderToString(pageJsx);
 
+  if (!pageHtml || pageHtml.trim() === "") {
+    console.error(`Error: Page content is empty for "${dirEntry.name}"`);
+    throw new Error(`Page content is empty for "${dirEntry.name}"`);
+  }
+
   const outputDir = relativePath ? `dist/${relativePath}` : "dist";
   const nav = renderNav();
   Deno.mkdirSync(outputDir, { recursive: true });
